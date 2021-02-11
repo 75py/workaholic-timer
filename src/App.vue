@@ -1,10 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="header"
+       v-show="expand">
+    <h1 v-on:click="expand = !expand">Workaholic Timer</h1>
+    <div id="nav">
+      <router-link to="/">Player</router-link>
+      |
+      <router-link to="/preference">Preference</router-link>
+    </div>
   </div>
-  <router-view/>
+  <router-view v-on:click="expand = !expand"/>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      expand: true,
+    }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -27,4 +42,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
