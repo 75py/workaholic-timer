@@ -73,7 +73,7 @@ export default {
     this.initializeNotification()
   },
   unmounted: function () {
-    channel.removeEventListener(messageEventListener)
+    channel.removeEventListener('message', messageEventListener)
   },
   methods: {
     onTimeChanged: async function (date, dateStr, timeStr) {
